@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/messagesFlow">
+
+    <navigation
+        android:id="@+id/loginFlow"
+        android:label="loginGraph"
+        app:startDestination="@id/login_fragment">
+        <fragment
+            android:id="@+id/register_fragment"
+            android:name="hu.bme.vik.biborjakab.thesischatapp.ui.register.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register">
+        </fragment>
+        <fragment
+            android:id="@+id/login_fragment"
+            android:name="hu.bme.vik.biborjakab.thesischatapp.ui.login.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login">
+
+            <action
+                android:id="@+id/action_loginFragment_to_registerFragment"
+                app:destination="@id/register_fragment" />
+        </fragment>
+        <action
+            android:id="@+id/action_loginFlow_to_messagesFlow"
+            app:destination="@id/messagesFlow"
+            app:popUpTo="@id/nav_graph"/>
+    </navigation>
+    <navigation
+        android:id="@+id/messagesFlow"
+        app:startDestination="@id/messages_fragment">
+        <fragment
+            android:id="@+id/messages_fragment"
+            android:name="hu.bme.vik.biborjakab.thesischatapp.ui.messagePartners.MessagesFragment"
+            android:label="fragment_messages"
+            tools:layout="@layout/fragment_messages">
+
+            <action
+                android:id="@+id/action_messagesFragment_to_chatFragment"
+                app:destination="@id/chat_fragment" />
+            <action
+                android:id="@+id/action_messages_fragment_to_addPartnerFragment"
+                app:destination="@id/addPartner_fragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/chat_fragment"
+            android:name="hu.bme.vik.biborjakab.thesischatapp.ui.chat.ChatFragment"
+            android:label="fragment_chat"
+            tools:layout="@layout/fragment_chat" >
+            <argument
+                android:name="messagePartner"
+                app:argType="hu.bme.vik.biborjakab.thesischatapp.data.model.UserModel" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/addPartner_fragment"
+            android:name="hu.bme.vik.biborjakab.thesischatapp.ui.searchUsers.SearchUsersFragment"
+            android:label="fragment_add_partner" >
+            <action
+                android:id="@+id/action_partnerResults_to_chatFragment"
+                app:destination="@id/chat_fragment" />
+        </fragment>
+        <action
+            android:id="@+id/action_messagesFlow_to_loginFlow"
+            app:destination="@id/loginFlow"
+            app:popUpTo="@id/nav_graph" />
+    </navigation>
+</navigation>

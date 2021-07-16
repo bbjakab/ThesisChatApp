@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hu.bme.vik.biborjakab.thesischatapp">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.ThesisChatApp"
+        android:allowBackup="false">
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="standard"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name="hu.bme.vik.biborjakab.thesischatapp.service.NotificationService"
+            android:exported="false">
+        </service>
+        <receiver android:name=".receiver.StartServiceOnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.RestartServiceOnDestroy">
+            <intent-filter>
+                <action android:name="hu.bme.vik.biborjakab.thesischatapp.NotificationServiceRestart" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

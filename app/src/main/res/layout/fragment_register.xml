@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginHorizontal="@dimen/spacing_medium"
+        tools:context=".ui.register.RegisterFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldDisplayName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/text_displayName"
+            app:errorEnabled="true"
+
+            app:layout_constraintTop_toTopOf="@id/guideline2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDisplayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <include
+            android:id="@+id/emailPassword"
+            layout="@layout/view_textfields_email_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textFieldDisplayName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldPasswordSecond"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/spacing_small"
+            android:hint="@string/text_password_repeat"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+
+            app:layout_constraintTop_toBottomOf="@+id/emailPassword">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPasswordSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/spacing_smedium"
+
+            android:text="@string/action_register"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldPasswordSecond" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

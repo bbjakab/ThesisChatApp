@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextDefault">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextDefault.ChatBubble">
+
+        <item name="android:backgroundTintMode">multiply</item>
+
+        <item name="android:maxWidth">280dp</item>
+
+        <item name="android:paddingLeft">@dimen/spacing_smedium</item>
+        <item name="android:paddingRight">@dimen/spacing_smedium</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+
+        <item name="android:textSize">@dimen/font_medium</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="TextDefault.ChatBubble.Me">
+        <item name="android:background">@drawable/bg_message_me</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TextDefault.ChatBubble.Them">
+        <item name="android:background">@drawable/bg_message_them</item>
+        <item name="android:paddingLeft">@dimen/spacing_small</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="Divider.Horizontal" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+</resources>

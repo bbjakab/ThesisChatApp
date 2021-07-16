@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.searchUsers.SearchUsersFragment">
+
+    <ImageButton
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="@dimen/spacing_xsmall"
+        android:minWidth="50dp"
+        android:minHeight="52dp"
+
+        android:background="@drawable/bg_btn_generic"
+        android:backgroundTint="?attr/colorPrimary"
+
+        android:contentDescription="@string/action_search"
+        android:src="@drawable/ic_action_search_person"
+
+        app:layout_constraintBottom_toBottomOf="@+id/textFieldOrderBy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPartnerResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="@dimen/spacing_smedium"
+
+        android:scrollbars="vertical"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldOrderBy"
+        tools:listitem="@layout/row_item_partner_userinfo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldOrderBy"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="@dimen/spacing_small"
+
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
